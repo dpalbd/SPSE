@@ -1,0 +1,55 @@
+Reference:
+https://scapy.readthedocs.io/en/latest/usage.html
+
+Useful information of Scapy usages:
+
+
+sr               : Send and receive packets at layer 3
+sr1              : Send packets at layer 3 and return only the first answer
+srp              : Send and receive packets at layer 2
+srp1             : Send and receive packets at layer 2 and return only the first answer
+sniff            : Sniff packets
+p0f              : Passive OS fingerprinting: which OS emitted this TCP SYN ?
+arpcachepoison   : Poison target's cache with (your MAC,victim's IP) couple
+send             : Send packets at layer 3
+sendp            : Send packets at layer 2
+traceroute       : Instant TCP traceroute
+arping           : Send ARP who-has requests to determine which hosts are up
+ls               : List  available layers, or infos on a given layer
+nmap_fp          : nmap fingerprinting
+report_ports     : portscan a target and output a LaTeX table
+
+SYN Scans
+Classic SYN Scan can be initialized by executing the following command from Scapy’s prompt:
+
+>>> sr1(IP(dst="72.14.207.99")/TCP(dport=80,flags="S"))
+
+Use either notations to scan ports 400 through 443 on the system:
+
+>>> sr(IP(dst="192.168.1.1")/TCP(sport=666,dport=(440,443),flags="S"))
+or
+
+>>> sr(IP(dst="192.168.1.1")/TCP(sport=RandShort(),dport=[440,441,442,443],flags="S"))
+
+
+Use scapy with python 
+Reference:
+https://scapy.readthedocs.io/en/latest/extending.html
+
+
+
+
+Below example example takes an IP or a name as first parameter, send an ICMP echo request packet and display the completely dissected return packet:
+
+#! /usr/bin/env python
+
+import sys
+from scapy.all import sr1,IP,ICMP
+
+p=sr1(IP(dst=sys.argv[1])/ICMP())
+if p:
+    p.show()
+    
+    
+
+
