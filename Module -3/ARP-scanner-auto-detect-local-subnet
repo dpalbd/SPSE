@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+import socket
+from scapy.all import *
+
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.connect(("8.8.8.8", 80))
+ip = s.getsockname()[0]
+#print "The local machine IP is",  s.getsockname()[0]
+
+print "The local machine IP is",  ip
+
+iplist=ip.split('.')
+ip_prefix = iplist[0]+'.' + iplist[1]+'.' + iplist[2] + '.'
+
+
+for ip_suffix in range(1,10):
+ ip = ip_prefix + str(ip_suffix)
+ #print(ip)
+ arp_request = Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst=ip, hwdst="ff:ff:ff:ff:ff:ff")
+ arp_response = srp1(arp_request, timeout=1, verbose=0)
+ if arp_response:
+  print("IP: {} MAC: {}".format(arp_response.psrc, arp_response.hwsrc))
