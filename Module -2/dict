@@ -2,3 +2,35 @@ root:root123
 root:password
 demo:12345
 demo:demo123
+
+
+=============
+import sys
+#import Queue
+
+fd=open(sys.argv[1],"r")
+
+for line in fd.readlines():
+ user,password=line.strip().split(':')
+ print user
+ print password
+=============
+
+
+password
+password123
+root123
+toor
+demo
+demo123
+=============
+
+
+import sys
+
+fd=open(sys.argv[1],"r")
+
+for line in fd.readlines():
+ user=(line.strip())
+ print user
+=============
