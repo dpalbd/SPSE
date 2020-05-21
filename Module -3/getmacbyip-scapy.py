@@ -1,6 +1,8 @@
 #https://scapy.readthedocs.io/en/latest/routing.html
 #Get MAC by IP
 
+#!/usr/bin/env python
+
 from scapy.all import *
 import sys
 
