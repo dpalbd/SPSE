@@ -3,7 +3,7 @@
 
 #https://docs.python.org/2/library/ftplib.html
 #https://pythonprogramming.net/ftp-transfers-python-ftplib/
-
+#https://www.pythonforbeginners.com/code-snippets-source-code/how-to-use-ftp-in-python
 
 
 from ftplib import FTP
