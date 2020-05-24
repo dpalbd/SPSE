@@ -1,4 +1,5 @@
 #can be check https://stackoverflow.com/questions/39070480/python-bruteforce-script
+#can be check https://coderinaero.wordpress.com/2014/12/08/brute-force-a-website-login-in-python/
 
 
 #!/usr/bin/env python
