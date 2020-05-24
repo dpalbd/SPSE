@@ -34,3 +34,22 @@ for line in fd.readlines():
  user=(line.strip())
  print user
 =============
+
+
+=============
+#!/usr/bin/python
+import sys
+
+fd=open(sys.argv[1],"r")
+
+
+for line in fd.readlines():
+        passwd=(line.strip())
+        #print passwd
+        try:
+                print ('The password information is %s' %(passwd))
+        except:
+                print ('Nothing')
+
+
+=============
