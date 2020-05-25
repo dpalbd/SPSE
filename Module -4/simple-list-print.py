@@ -1,3 +1,21 @@
+
+
+import sys
+
+fd=open(sys.argv[1],"r")
+lines = [line.rstrip() for line in fd]
+print lines
+
+
+======
+Related output 
+
+["1'1", '1 exec sp_ (or exec xp_)', '1 and 1=1', "1' and 1=(select count(*) from tablenames); --", '1 or 1=1', "1' or '1'='1", '1or1=1', "1'or'1'='1", "fake@ema'or'il.nl'='il.nl"]
+
+
+=======================================================================================================================================================================================================================
+
+
 import sys
 
 with open('sqlipayload.txt') as f:
