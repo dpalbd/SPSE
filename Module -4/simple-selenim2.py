@@ -1,6 +1,6 @@
 #https://stackoverflow.com/questions/46753393/how-to-make-firefox-headless-programmatically-in-selenium-with-python
 #https://stackoverflow.com/questions/53657215/running-selenium-with-headless-chrome-webdriver
-
+#https://stackoverflow.com/questions/31530335/selenium-webdriver-vs-mechanize
 
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
