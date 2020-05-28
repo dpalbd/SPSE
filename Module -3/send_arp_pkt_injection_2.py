@@ -28,6 +28,7 @@ print  "Length of the  packet sent:"  + str(len(packet))
 
 OUTPUT
 
+Length of the  packet sent:14
 
 From source 
 =============
