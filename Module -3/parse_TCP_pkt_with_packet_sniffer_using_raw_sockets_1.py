@@ -56,3 +56,34 @@
 
 
 
+
+# https://www.theunterminatedstring.com/python-bits-and-bytes/
+
+
+# IPv4 header is : !BBHHHBBHLL.
+
+# https://stackoverflow.com/questions/20768107/regarding-struct-unpack-in-python
+
+
+# https://stackoverflow.com/questions/48833249/understanding-raw-socket-packet-header
+# struct.unpack('!BBHHHBBH4s4s')
+
+
+# Example Ethernet header:
+
+# 0000   3c 4a 92 1f 04 00 74 c6 3b 8d 82 69 08 00 45 00  <J....t.;..i..E.
+# 0010   00 3c 0a 24 40 00 40 06 23 76 0a 14 01 0d 01 01  .<.$@.@.#v......
+# 0020   01 01 e7 7a 04 d2 a2 5e 0c d2 00 00 00 00 a0 02  ...z...^........
+# 0030   72 10 0d 51 00 00 02 04 05 b4 04 02 08 0a 9c d4  r..Q............
+#0040   c0 c0 00 00 00 00 01 03 03 07                    ..........
+# the 20-byte IPv4 header exists at packet[14:34]. Unpacking it with the above format yields this:
+
+#>>> header = struct.unpack('!BBHHHBBH4s4s', packet[14:34])
+#>>> header
+#(69, 0, 60, 2596, 16384, 64, 6, 9078, b'\n\x14\x01\r', b'\x01\x01\x01\x01')
+#Indices 8 and 9 are the source and destination IP's respectively. Because they are bytes, 
+#we can convert them to int and then str to get the IP in string format:
+
+# Note: Python 3 only
+#>>> ip_src = '.'.join(map(str, header[8]))  # 10.20.1.13
+#>>> ip_dst = '.'.join(map(str, header[9]))  # 1.1.1.1
