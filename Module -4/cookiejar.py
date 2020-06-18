@@ -2,6 +2,7 @@
 
 #https://stackoverflow.com/questions/57350698/what-is-mechanize-cookiejar-in-mechanize-python
 #https://stackoverflow.com/questions/15459217/how-to-set-cookie-in-python-mechanize
+#http://stockrt.github.io/p/handling-html-forms-with-python-mechanize-and-BeautifulSoup/
 
 #mechanize cookiejar dvwa
 
